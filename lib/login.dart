@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import 'videocall.dart';
 import 'signup.dart';
 
 void main() =>  runApp(AppHSS());
@@ -10,7 +11,8 @@ class AppHSS extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       routes: <String,WidgetBuilder>{
-        '/signup':(BuildContext context) => new Signup()
+        '/signup':(BuildContext context) => new Signup(),
+        '/videocall':(BuildContext context) => new VideoCall()
       },
       home: LogInPage()
     );
@@ -95,15 +97,19 @@ class _LogInPageState extends State<LogInPage> {
                       color: Colors.blueAccent,
                       elevation: 7.0,
                       child: GestureDetector(
-                        onTap: (){},
+                        onTap: (){
+                          Navigator.of(context).pushNamed('/videocall');
+                        },
                         child: Center(
-                          child: Text(
+                          child: InkWell(
+                            child:Text(
                             'Log in',
                             style: TextStyle(
                               color:Colors.white,
                               fontWeight: FontWeight.bold,
                             ),
                           ),
+                        ),
                         ),
                       ),
                     ),
