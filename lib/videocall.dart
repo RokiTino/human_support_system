@@ -1,8 +1,6 @@
-import 'dart:math';
-import 'dart:ui';
 
+import 'dart:math';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 
 class VideoCall extends StatelessWidget {
   @override
@@ -21,11 +19,11 @@ class VideoCallPage extends StatefulWidget {
 
 class _VideCallState extends State<VideoCallPage> {
 
-
-  void _onClick(){
-    setState(() {
-    });
-  }
+  //
+  // void _onClick(){
+  //   setState(() {
+  //   });
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -57,26 +55,34 @@ class _VideCallState extends State<VideoCallPage> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
                 Padding(padding: EdgeInsets.zero,
-                  child: FloatingActionButton(
-                    child: Icon(
-                      Icons.arrow_back_ios,
-                      color:Colors.blue,
-                      size: 30.0,
-                    ), onPressed: (){},
-                    elevation: 2,
-                    backgroundColor: Colors.white,
-                    mini: true,
+                  child:
+                  Container(child:
+                  IconButton(
+                    icon: Icon(
+                        Icons.arrow_back_ios,
+                        color:Colors.blue,
+                        size: 30.0,
+                      ), onPressed: (){},
+                    ),
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(30.0),
+                  ),
                   ),
                 ),
-              Padding(padding: EdgeInsets.zero,child: FloatingActionButton(child: Icon(
-                Icons.waves,
-                color:Colors.blue,
-                size: 20.0,
-              ), onPressed: (){},
-                backgroundColor:Colors.white,
-                mini: true,),
+              Padding(padding: EdgeInsets.zero,child:
+                  Container(
+                    child:
+                  IconButton(
+                  icon: Icon(Icons.waves,color: Colors.blue,size: 30.0,),
+                  onPressed: (){},
+                  ),
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(30.0),
+                    ),
+                ),
               ),
-
           ],
             ),
           ],
@@ -193,4 +199,36 @@ class _VideCallState extends State<VideoCallPage> {
     );
   }
 }
-
+//
+// class WheelPainter extends CustomPainter {
+//   Path getWheelPath(double wheelSize, double fromRadius, double toRadius) {
+//     return new Path()
+//       ..moveTo(wheelSize, wheelSize)
+//       ..arcTo(Rect.fromCircle(radius: wheelSize, center: Offset(wheelSize, wheelSize)), fromRadius, toRadius, false)
+//       ..close();
+//   }
+//
+//   Paint getColoredPaint(Color color) {
+//     Paint paint = Paint();
+//     paint.color = color;
+//     return paint;
+//   }
+//
+//   Future<ui.Image> loadImageAsset(String assetName) async {
+//     final data = await rootBundle.load(assetName);
+//     return decodeImageFromList(data.buffer.asUint8List());
+//   }
+//   @override
+//   void paint(Canvas canvas, Size size) {
+//     double wheelSize = 100;
+//     double nbElem = 6;
+//     double radius = (2 * pi) / nbElem;
+//
+//     canvas.drawImage(loadImageAsset("images/activeBntImg.png"), Offset.zero, Paint());
+//   }
+//
+//   @override
+//   bool shouldRepaint(CustomPainter oldDelegate) {
+//     return oldDelegate != this;
+//   }
+// }
