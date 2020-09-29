@@ -18,12 +18,48 @@ class VideoCallPage extends StatefulWidget {
 }
 
 class _VideCallState extends State<VideoCallPage> {
+  String inactiveImg = "images/activeBtnImg.png";
+  String dermaInc = "images/inactiveBtnImgDerm.png";
+  String pshInc = "images/inactiveBtnImgpsh.png";
 
-  //
-  // void _onClick(){
-  //   setState(() {
-  //   });
-  // }
+  void _pshClick(){
+    setState(() {
+      if(pshInc == "images/inactiveBtnImgpsh.png"){
+        pshInc = "images/pshyActive.png";
+        dermaInc = "images/inactiveBtnImgDerm.png";
+        inactiveImg = "images/inactiveBtnImg.png";
+      }
+      else{
+        pshInc = "images/inactiveBtnImgpsh.png";
+
+      }
+    });
+  }
+  void _dermaClick(){
+    setState(() {
+      if(dermaInc == "images/inactiveBtnImgDerm.png"){
+        dermaInc = "images/dermaActive.png";
+        inactiveImg = "images/inactiveBtnImg.png";
+        pshInc = "images/inactiveBtnImgpsh.png";
+      }
+      else {
+        dermaInc = "images/inactiveBtnImgDerm.png";
+      }
+    });
+  }
+
+  void _onClick(){
+    setState(() {
+      if(inactiveImg == "images/activeBtnImg.png"){
+        inactiveImg = "images/inactiveBtnImg.png";
+      }
+      else {
+        inactiveImg = "images/activeBtnImg.png";
+        dermaInc = "images/inactiveBtnImgDerm.png";
+        pshInc = "images/inactiveBtnImgpsh.png";
+      }
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -141,8 +177,8 @@ class _VideCallState extends State<VideoCallPage> {
             Padding(
               padding: EdgeInsets.fromLTRB(0.0, 5.0, 0.0, 20.0),
               child:GestureDetector(
-                child: Image.asset('images/activeBtnImg.png',width: 50.0,height: 50.0,),
-                onTap: (){},
+                child: Image.asset('$inactiveImg',width: 50.0,height: 50.0,),
+                onTap: _onClick,
               ),
             ),
           ),
@@ -167,8 +203,8 @@ class _VideCallState extends State<VideoCallPage> {
                   Padding(
                     padding: EdgeInsets.fromLTRB(5.0, 15.0, 15.0, 0.0),
                     child:GestureDetector(
-                      child: Image.asset('images/inactiveBtnImgpsh.png',width: 50.0,height: 50.0,),
-                      onTap: (){},
+                      child: Image.asset('$pshInc',width: 50.0,height: 50.0,),
+                      onTap: _pshClick,
                     ),
                   ),
                 ),
@@ -184,16 +220,15 @@ class _VideCallState extends State<VideoCallPage> {
                   elevation: 5.0,
                   child:
                   Padding(
-                    padding: EdgeInsets.fromLTRB(15.0, 15.0, 5.0, 0.0),
+                    padding: EdgeInsets.fromLTRB(15.0, 15.0, 5.0, 5.0),
                     child:GestureDetector(
-                      child: Image.asset('images/inactiveBtnImgDerm.png',width: 50.0,height: 50.0,),
-                      onTap: (){},
+                      child: Image.asset("$dermaInc",width: 50.0,height: 50.0,),
+                      onTap: _dermaClick,
                     ),
                   ),
                 ),
               ],
             ),
-
         ],
       ),
     );
