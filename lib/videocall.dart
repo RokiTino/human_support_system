@@ -1,4 +1,3 @@
-
 import 'dart:math';
 import 'package:flutter/material.dart';
 
@@ -18,45 +17,50 @@ class VideoCallPage extends StatefulWidget {
 }
 
 class _VideCallState extends State<VideoCallPage> {
-  String inactiveImg = "images/activeBtnImg.png";
-  String dermaInc = "images/inactiveBtnImgDerm.png";
-  String pshInc = "images/inactiveBtnImgpsh.png";
+  String ActiveImg = "images/activeBtnImg.png";
+  String inactiveIMg = "";
+  String defaultImgPSh = "images/inactiveBtnImgpsh.png";
+  String defaultDermImg = "images/inactiveBtnImgDerm.png";
+  String ActiveTitle = "";
+  String ActiveText = "Your own private psychiatrist, with whom you can talk peacefully.";
+  void _onClick(){
+    setState(() {
+      ActiveText = "Your own private psychiatrist, with whom you can talk peacefully.";
+      ActiveTitle = "Psychiatrist";
+      ActiveImg ="images/activeBtnImg.png";
+      defaultImgPSh = "images/inactiveBtnImgpsh.png";
+      defaultDermImg = "images/inactiveBtnImgDerm.png";
+    });
+  }
+
+  void _dermaClick(){
+    setState(() {
+      ActiveImg = "images/activeBtnImg.png";
+      defaultDermImg = "images/inactiveBtnImgDerm.png";
+      if (ActiveImg != "images/dermaActive.png"){
+       ActiveImg = "images/dermaActive.png";
+       ActiveTitle = "Dermatologist";
+       ActiveText = "Your own private dermatologist,with whom you can check your skin problems.";
+       defaultImgPSh = "images/inactiveBtnImg.png";
+       defaultDermImg = "images/inactiveBtnImgpsh.png";
+     }
+      if (defaultDermImg == "images/inactiveBtnImg.png"){
+        defaultDermImg = "images/inactiveBtnImgDerm.png";
+        ActiveImg = "images/activeBtnImg.png";
+      }
+    });
+  }
 
   void _pshClick(){
     setState(() {
-      if(pshInc == "images/inactiveBtnImgpsh.png"){
-        pshInc = "images/pshyActive.png";
-        dermaInc = "images/inactiveBtnImgDerm.png";
-        inactiveImg = "images/inactiveBtnImg.png";
-      }
-      else{
-        pshInc = "images/inactiveBtnImgpsh.png";
-
-      }
-    });
-  }
-  void _dermaClick(){
-    setState(() {
-      if(dermaInc == "images/inactiveBtnImgDerm.png"){
-        dermaInc = "images/dermaActive.png";
-        inactiveImg = "images/inactiveBtnImg.png";
-        pshInc = "images/inactiveBtnImgpsh.png";
-      }
-      else {
-        dermaInc = "images/inactiveBtnImgDerm.png";
-      }
-    });
-  }
-
-  void _onClick(){
-    setState(() {
-      if(inactiveImg == "images/activeBtnImg.png"){
-        inactiveImg = "images/inactiveBtnImg.png";
-      }
-      else {
-        inactiveImg = "images/activeBtnImg.png";
-        dermaInc = "images/inactiveBtnImgDerm.png";
-        pshInc = "images/inactiveBtnImgpsh.png";
+      ActiveImg = "images/activeBtnImg.png";
+      defaultImgPSh = "images/inactiveBtnImgpsh.png";
+      if(ActiveImg != "images/pshyActive.png"){
+        ActiveTitle = "Psychologist";
+        ActiveImg = "images/pshyActive.png";
+        ActiveText = "Your own private psychologist,with whom you can talk peacefully.";
+        defaultImgPSh = "images/inactiveBtnImgDerm.png";
+        defaultDermImg = "images/inactiveBtnImg.png";
       }
     });
   }
@@ -131,14 +135,14 @@ class _VideCallState extends State<VideoCallPage> {
 
         crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
-          Image.asset("images/activeBtnImg.png", alignment: Alignment.center,width: 100, height: 100),
+          Image.asset("$ActiveImg", alignment: Alignment.center,width: 100, height: 100),
           SizedBox(height: 5.0,),
           Text(
-            'Psychiatrist',
+            '$ActiveTitle',
             style: TextStyle(
               color: Colors.blueAccent,
               fontWeight: FontWeight.bold,
-              fontSize: 20.0,
+              fontSize: 25.0,
             ),
           ),
           SizedBox(height: 10.0,),
@@ -146,7 +150,7 @@ class _VideCallState extends State<VideoCallPage> {
           Container(
             alignment: Alignment.center,
             child: Text(
-                        'Your privat psychiatrist, with whom you can talk peacefully.',
+                        '$ActiveText',
                         style: TextStyle(
                         color: Colors.blueAccent,
                         ),
@@ -177,7 +181,7 @@ class _VideCallState extends State<VideoCallPage> {
             Padding(
               padding: EdgeInsets.fromLTRB(0.0, 5.0, 0.0, 20.0),
               child:GestureDetector(
-                child: Image.asset('$inactiveImg',width: 50.0,height: 50.0,),
+                child: Image.asset('$ActiveImg',width: 50.0,height: 50.0,),
                 onTap: _onClick,
               ),
             ),
@@ -203,7 +207,7 @@ class _VideCallState extends State<VideoCallPage> {
                   Padding(
                     padding: EdgeInsets.fromLTRB(5.0, 15.0, 15.0, 0.0),
                     child:GestureDetector(
-                      child: Image.asset('$pshInc',width: 50.0,height: 50.0,),
+                      child: Image.asset('$defaultImgPSh',width: 50.0,height: 50.0,),
                       onTap: _pshClick,
                     ),
                   ),
@@ -222,7 +226,7 @@ class _VideCallState extends State<VideoCallPage> {
                   Padding(
                     padding: EdgeInsets.fromLTRB(15.0, 15.0, 5.0, 5.0),
                     child:GestureDetector(
-                      child: Image.asset("$dermaInc",width: 50.0,height: 50.0,),
+                      child: Image.asset("$defaultDermImg",width: 50.0,height: 50.0,),
                       onTap: _dermaClick,
                     ),
                   ),
