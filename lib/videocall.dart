@@ -1,6 +1,6 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
-
+void main() =>  runApp(VideoCall());
 class VideoCall extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -23,6 +23,7 @@ class _VideCallState extends State<VideoCallPage> {
   String defaultDermImg = "images/inactiveBtnImgDerm.png";
   String ActiveTitle = "";
   String ActiveText = "Your own private psychiatrist, with whom you can talk peacefully.";
+
   void _onClick(){
     setState(() {
       ActiveText = "Your own private psychiatrist, with whom you can talk peacefully.";
@@ -45,8 +46,7 @@ class _VideCallState extends State<VideoCallPage> {
        defaultDermImg = "images/inactiveBtnImgpsh.png";
      }
       if (defaultDermImg == "images/inactiveBtnImg.png"){
-        defaultDermImg = "images/inactiveBtnImgDerm.png";
-        ActiveImg = "images/activeBtnImg.png";
+        _onClick();
       }
     });
   }
@@ -61,6 +61,9 @@ class _VideCallState extends State<VideoCallPage> {
         ActiveText = "Your own private psychologist,with whom you can talk peacefully.";
         defaultImgPSh = "images/inactiveBtnImgDerm.png";
         defaultDermImg = "images/inactiveBtnImg.png";
+      }
+      if(defaultImgPSh == "images/inactiveBtnImgDerm.png"){
+        _dermaClick();
       }
     });
   }
