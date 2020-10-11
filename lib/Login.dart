@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-
-import 'videocall.dart';
+import 'package:passwordfield/passwordfield.dart';
 void main() =>  runApp(AppHSS());
 
 class AppHSS extends StatelessWidget {
@@ -9,7 +8,6 @@ class AppHSS extends StatelessWidget {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
         routes: <String,WidgetBuilder>{
-          '/videocall':(BuildContext context) => new VideoCall()
         },
         home: LogInPage()
     );
@@ -45,31 +43,49 @@ class _LogInPageState extends State<LogInPage> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: <Widget>[
-                TextField(
-                  decoration: InputDecoration(
+
+                SizedBox(height: 20.0,),
+                Container(
+                  decoration: BoxDecoration(
+                    color: Colors.grey,
+                    backgroundBlendMode: BlendMode.color,
+                    borderRadius: BorderRadius.circular(20.0),
+                  ),
+                  child: TextFormField(
+                    decoration: InputDecoration(
                       labelText: 'Email',
                       labelStyle: TextStyle(
-                        fontWeight: FontWeight.bold,
                         color: Colors.grey,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 14.0,
                       ),
-                      focusedBorder: UnderlineInputBorder(
-                          borderSide: BorderSide(color: Colors.blueAccent,)
-                      )
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(20.0),
+                        borderSide: BorderSide.none,
+                      ),
+                    alignLabelWithHint: true,
+                  ),
+                    autovalidate: true,
                   ),
                 ),
                 SizedBox(height: 20.0,),
-                TextField(
-                  decoration: InputDecoration(
-                      labelText: 'Password',
-                      labelStyle: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        color: Colors.grey,
+                Container(
+                  child: PasswordField(
+                    color: Colors.blue,
+                    hintText: "Password",
+                    hasFloatingPlaceholder: true,
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(20.0),
+                        borderSide: BorderSide.none
                       ),
-                      focusedBorder: UnderlineInputBorder(
-                          borderSide: BorderSide(color: Colors.blueAccent,)
-                      )
+                    backgroundColor: Colors.white24,
+                    backgroundBorderRadius: BorderRadius.circular(20.0),
+                    hintStyle: TextStyle(
+                      color: Colors.grey,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 14.0,
+                    ),
                   ),
-                  obscureText: true,
                 ),
                 SizedBox(height: 5.0,),
                 Container(
@@ -112,29 +128,6 @@ class _LogInPageState extends State<LogInPage> {
                   ),
                 ),
                 SizedBox(height: 20.0,),
-                Container(
-                  height: 40.0,
-                  child: Material(
-                    borderRadius: BorderRadius.circular(20.0),
-                    shadowColor: Colors.grey[600],
-                    color: Colors.white,
-                    elevation: 7.0,
-                    child: GestureDetector(
-                      onTap: (){
-                        Navigator.of(context).pushNamed('/signup');
-                      },
-                      child: Center(
-                        child: Text(
-                          'Sign Up',
-                          style: TextStyle(
-                            color:Colors.blueAccent,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
               ],
             ),
           )

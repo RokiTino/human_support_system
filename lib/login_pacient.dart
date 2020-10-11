@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
-void main() =>  runApp(login_Pacient());
+void main() =>  runApp(Login_Pacient());
 
-class login_Pacient extends StatelessWidget {
+class Login_Pacient extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: true,
-      home: new login_page(),
+      home: new Login_page(),
     );
   }
 }
-class login_page extends StatelessWidget {
+class Login_page extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -34,35 +34,32 @@ class login_page extends StatelessWidget {
                 ),
               ),
               SizedBox(height: 40.0,),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: <Widget>[
-                  Image.asset("images/stetoscope.png",width: 50.0,height: 50.0,),
-                  Container(
-                    height: 40.0,
-                    child: Material(
-                      borderRadius: BorderRadius.circular(20.0),
-                      shadowColor: Colors.grey[600],
-                      color: Colors.white60,
-                      elevation: 7.0,
-                      child: GestureDetector(
-                        onTap: (){
-                          Navigator.of(context).pushNamed('');
-                        },
-                        child: Center(
-                          child: Text(
-                            'Become a member',
-                            style: TextStyle(
-                              color:Colors.white,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
-                ],
+              Text(
+                'Hello Dr.',
+                style: TextStyle(
+                  color: Colors.grey,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 12.0,
+                ),
               ),
+              Container(
+                child: RaisedButton.icon(
+                onPressed: (){},
+                icon: Icon(Icons.account_box,color: Colors.blue, size: 20.0,),
+                label: Text(
+                  'Become a member',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 12.0,
+                  ),
+                ),
+                  elevation: 6,
+                ),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(20.0),
+                ),
+                ),
             ],
           ),
         ],
