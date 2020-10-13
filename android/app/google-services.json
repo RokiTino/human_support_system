@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "394415029045",
+    "firebase_url": "https://helth-support-system.firebaseio.com",
+    "project_id": "helth-support-system",
+    "storage_bucket": "helth-support-system.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:394415029045:android:b359f0bdce2e0acc6faa7c",
+        "android_client_info": {
+          "package_name": "com.example.human_support_system"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "394415029045-ga1ik6823v9v7lt16h320inqpk4v898b.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBNWZd0ibylnrDmts6_46laq0O88RvR2og"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "394415029045-ga1ik6823v9v7lt16h320inqpk4v898b.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
